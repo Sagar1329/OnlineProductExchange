@@ -1,0 +1,26 @@
+body {
+    font-family: 'Abril Fatface', cursive;
+    background-image: url('signupback.jpg');
+    background-blend-mode: darken;
+    color: rgb(13, 245, 253);
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+
+}
+
+#nav {
+    color: rgb(13, 245, 253);
+}
+
+
+.signup {
+    text-align: left;
+    background: none;
+    width: 50%;
+}
+
+.fm {
+    justify-content: center;
+}

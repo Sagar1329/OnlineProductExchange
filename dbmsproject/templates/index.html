@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block title %} HOME{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Road+Rage&family=Yuji+Mai&display=swap" rel="stylesheet">
+{% endblock css %}
+{% block body %}
+
+
+<svg viewBox="0 0 450 50">
+    <text y="50">WELCOME TO OLX</text>
+</svg>
+
+
+
+
+
+<br><br><br><br><br><br><br>
+
+<div class="container-flex">
+    <div class="row">
+        <div class="col-8">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="static/bb.jpg" alt="First slide" width:40px height:80px>
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5></h5>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="/buy">
+                            <img class="d-block w-100" src="static/buysell.jpg" alt="Second slide" width:40px
+                                height:40px>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5></h5>
+                                <p></p>
+                            </div>
+                        </a>
+
+                    </div>
+                    <div class="carousel-item">
+                        <a href="/signup">
+                            <img class="d-block w-100" src="static/join.jpg" alt="Third slide" width:40px height:40px>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Join Now</h5>
+                                <p>.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="col-4">
+        {% if current_user.is_authenticated %}
+        <div class="column">
+            <div class="row-6 ">
+                <div class="upper">
+                    <h1 id="rg">Buy Amazing products now at low price</h1>
+                    <img src="static/down.png" alt="" width="150px" height="150px">
+                </div>
+                <a href="/buy">
+                    <h1 id="kl">Buy</h1>
+                </a>
+            </div>
+            <div class="row-6 bottom">
+                <a href="/sell">
+                    <h1 id="rg"> SELL</h1>
+                </a>
+                <div class="down">
+                    <img src="static/up.png" alt="" id="bottom2" width="150px" height="150px">
+                    <span>
+                        <h4> Sell your products now</h4>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        {% else  %}
+        <div class="column">
+            <div class="row-6 ">
+                <div class="upper">
+                    <h1 id="rg">Already an user?</h1>
+                    <img src="static/down.png" alt="" width="150px" height="150px">
+                </div>
+                <a href="/login">
+                    <h1>Login</h1>
+                </a>
+            </div>
+            <div class="row-6 bottom">
+                <a href="/signup">
+                    <h1 id="rg"> SIGNUP NOW</h1>
+                </a>
+                <div class="down">
+                    <img src="static/up.png" alt="" id="bottom2" width="150px" height="150px">
+                    <span>
+                        <h4> Don't have an account?</h4>
+                    </span>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock body %}

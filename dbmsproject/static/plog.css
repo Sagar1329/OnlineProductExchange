@@ -1,0 +1,42 @@
+body {
+    font-family: 'Abril Fatface', cursive;
+    background-image: url('plogback.jpg');
+    background-blend-mode: darken;
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+
+}
+
+#nav {
+    color: #fffaf7;
+    text-shadow: -1px -1px 0 rgb(14, 14, 14), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.categories {
+    color: #ffd7ba;
+    text-shadow: -1px -1px 0 rgb(14, 14, 14), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: medium;
+    text-align: right;
+
+}
+
+.button {
+    color: blue;
+    border-radius: 30rem;
+    border-width: 2px;
+    border-left: blue;
+    width: 4rem;
+    transition: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.button:hover {
+    background-color: cornsilk;
+}
+
+footer {
+    color: #ffd7ba;
+    text-shadow: -1px -1px 0 rgb(14, 14, 14), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 #000, 1px 1px 0 #000;
+}

@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% block title %} Sell{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='sell.css')}}"> {% endblock css %}
+{% block body %}
+
+<h3 class="text-center"> SELL </h3>
+{% with  messages=get_flashed_messages(with_categories=true)  %}
+{% if messages %}
+{% for category,message in messages%}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <!-- If you are using Bootstrap 5.0 it seems in the bootstrap.js code the data-dismiss selector has changed to data-bs-dismiss. So I just had to change data-dismiss="modal" to data-bs-dismiss="modal" and it worked.  -->
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+<div class="container">
+    <div class="row m-5">
+
+        <div class="col-lg-6 col-10   nm" id="my">
+
+            <form action="/sell" class="jkl" enctype="multipart/form-data" method="POST">
+                <h4>Please enter Product details</h4>
+                <div class="mb-3">
+                    <label for="Firstname">First Name</label>
+                    <input type="text" class="form-control" id='Firstname' name="Firstname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Lastname">Last Name</label>
+                    <input type="text" class="form-control" id='Lastname' name="Lastname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name='email' class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class='form-label'>Address </label>
+                    <input type="text" class="form-control" id="username" name="address" required>
+                </div>
+                <div class="mb-3">
+                    <label for="state" class='form-label'>State</label>
+                    <select class="form-control" id="username" name="state" required>
+                        <option value="">choose here</option>
+                        <option>Karnataka</option>
+                        <option>Andra</option>
+                        <option>Delhi</option>
+                        <option> Andhra Pradesh</option>
+                        <option>Arunachal Pradesh </option>
+                        <option>Bihar </option>
+                        <option>Assam </option>
+                        <option>Chhattisgarh </option>
+                        <option>Goa </option>
+                        <option>Gujarat </option>
+                        <option>Haryana </option>
+                        <option> Himachal Pradesh </option>
+                        <option> Jharkhand </option>
+                        <option>Kerala </option>
+                        <option>Madhya Pradesh </option>
+                        <option>Maharashtra </option>
+                        <option>Manipur</option>
+                        <option> Meghalaya </option>
+                        <option>Mizoram </option>
+                        <option>Nagaland </option>
+                        <option>Odisha</option>
+                        <option> Punjab </option>
+                        <option>Rajasthan </option>
+                        <option>Sikkim </option>
+                        <option>Tamil Nadu </option>
+                        <option>Telangana </option>
+                        <option>Tripura </option>
+                        <option> Uttar Pradesh </option>
+                        <option>Uttarakhand </option>
+                        <option> West Bengal</option>
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class='form-label'>City</label>
+                    <select class="form-control" id="username" name="city" required>
+                        <option value="">choose here</option>
+                        <option>Bengaluru</option>
+                        <option>Hyderabad</option>
+                        <option>Mumbai</option>
+
+                        <option>Itanagar</option>
+                        <option>Dispur</option>
+                        <option>Patna</option>
+                        <option>Raipur</option>
+                        <option>Panaji</option>
+                        <option>Gandhinagar</option>
+                        <option>Shimla</option>
+                        <option>Chandigarh </option>
+                        <option>Ranchi</option>
+                        <option>Bengaluru</option>
+                        <option>Thamiruvananthapur</option>
+                        <option>Bhopal</option>
+                        <option>Mumbai</option>
+                        <option>Imphal</option>
+                        <option>Shillong</option>
+                        <option>Aizawl</option>
+                        <option>Kohima</option>
+                        <option>Bhubaneswar</option>
+                        <option>Chandigarh</option>
+                        <option>Jaipur</option>
+                        <option>Gangtok</option>
+                        <option>Chennai</option>
+                        <option>Hyderabad</option>
+                        <option>Agartala</option>
+                        <option>Lucknow</option>
+                        <option>Dehradun</option>
+                        <option>Kolkata</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pin code</label>
+                    <input type="number" name="pincode" id="pincode" class="form-control" required>
+
+                </div>
+                <div class="mb-3">
+                    <label for="productname" class="form-label">Product name</label>
+                    <input type="text" name="productname" class="form-control" id="productname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class='form-label'>Category</label>
+                    <select class="form-control" id="username" name="caterogies" required>
+                        <option value="">choose here</option>
+                        <option>Electronics</option>
+                        <option>automobiles</option>
+                        <option>Clothes</option>
+
+                        <option>Furnitures</option>
+                        <option>FashionAccesories</option>
+                        <option>Books</option>
+                        <option>Toys</option>
+                        <option>Games</option>
+                        <option>Beverages</option>
+                        <option>Sports</option>
+                        <option>MusicalInstruments</option>
+                        <option>HouseAppliances</option>
+                        <option>Hardware</option>
+                        <option>Masks</option>
+                        <option>Gym&Fitness</option>
+                        <option>WashingMachines</option>
+                        <option>Fridges</option>
+                        <option>Televison</option>
+                        <option>MobileAccesories</option>
+                        <option>Others</option>
+
+
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="username" value={{username}} readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description">Description of your product</label>
+                    <textarea class="form-control" name="description" id="description" rows="3" required> </textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone number</label>
+                    <input type="number" name="phone" id="phone" class="form-control" required>
+                </div>
+                <div class="custom-file">
+                    <input type="file" name="file" required>
+
+
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" name="price" id="price" class="form-control" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                    <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sell</button>
+            </form>
+        </div>
+        <div class="col-lg-6 col-2">
+            <h1>Sell your</h1>
+            <br>
+            <h1>Used Products</h1>
+            <br>
+            <h1>At your own convince now</h1>
+            <br>
+            <h1>Selling goods was never been this easy</h1>
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block title %} Your Profile{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='profile.css')}}">{% endblock css %}
+{% block body %}
+<h1>Your Profile</h1>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6 profile " id="ki">{% for post in query %}
+        {% with  messages=get_flashed_messages(with_categories=true)  %}
+        {% if messages %}
+        {% for category,message in messages%}
+
+        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <!-- If you are using Bootstrap 5.0 it seems in the bootstrap.js code the data-dismiss selector has changed to data-bs-dismiss. So I just had to change data-dismiss="modal" to data-bs-dismiss="modal" and it worked.  -->
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <section class="vh-100 hi">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-lg-6 mb-4 mb-lg-0 profilebox">
+                        <div class="card mb-3" style="border-radius: .5rem;">
+                            <div class="row g-0">
+                                <div class="col-md-4  text-center text-white"
+                                    style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    <img src="static/profile.jpg" alt="Avatar" class="img-fluid my-5"
+                                        style="width: 175px; height: 200px;" />
+
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <h6>User Information</h6>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Firstname</h6>
+                                                <p class="text-muted">{{post.Firstname}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Lasttname</h6>
+                                                <p class="text-muted">{{post.Lastname}}</p>
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Username</h6>
+                                                <p class="text-muted">{{post.username}}</p>
+                                            </div>
+
+                                            <div class="col-6 mb-3">
+                                                <h6>Email</h6>
+                                                <p class="text-muted">{{post.email}}</p>
+                                            </div>
+
+                                        </div>
+
+                                        <a href="/editprofile/{{post.id}}"><button class="btn btn-primary">Edit
+                                                Proflie</button></a>
+                                        <a href="/logout"><button
+                                                onclick="return confirm('Are you sure wanna Logout?');"
+                                                class="btn btn-danger">Logout</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {% endfor%}
+    </div>
+    <div class="col-3"></div>
+</div>
+
+{% endblock body %}

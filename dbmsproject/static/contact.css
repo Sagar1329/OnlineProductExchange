@@ -1,0 +1,41 @@
+body {
+    font-family: 'Abril Fatface', cursive;
+    background-image: url('contactusback.webp');
+    background-blend-mode: darken;
+    color: black;
+    text-shadow:
+        -1px -1px 0 rgba(255, 254, 253, 0.973),
+        1px -1px 0 rgba(255, 254, 253, 0.973),
+        -1px 1px 0 rgba(255, 254, 253, 0.973),
+        1px 1px 0 rgba(255, 254, 253, 0.973);
+
+    background-repeat: no-repeat;
+    font-weight: bolder;
+    background-size: cover;
+
+}
+
+#nav {
+    color: black;
+    text-shadow:
+        -1px -1px 0 rgba(255, 254, 253, 0.973),
+        1px -1px 0 rgba(255, 254, 253, 0.973),
+        -1px 1px 0 rgba(255, 254, 253, 0.973),
+        1px 1px 0 rgba(255, 254, 253, 0.973);
+
+}
+
+.contact {
+    text-align: center;
+    font-size: xx-large;
+}
+
+footer {
+    color: black;
+    text-shadow:
+        -1px -1px 0 rgba(255, 254, 253, 0.973),
+        1px -1px 0 rgba(255, 254, 253, 0.973),
+        -1px 1px 0 rgba(255, 254, 253, 0.973),
+        1px 1px 0 rgba(255, 254, 253, 0.973);
+
+}

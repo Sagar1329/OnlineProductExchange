@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %} Your Listings{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='listing.css')}}"> {% endblock css %}
+{% block body %}
+<h2>Hey {{current_user.username}}</h2>
+{% with  messages=get_flashed_messages(with_categories=true)  %}
+{% if messages %}
+{% for category,message in messages%}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <!-- If you are using Bootstrap 5.0 it seems in the bootstrap.js code the data-dismiss selector has changed to data-bs-dismiss. So I just had to change data-dismiss="modal" to data-bs-dismiss="modal" and it worked.  -->
+</div>
+{% endfor %}
+{% endif %}
+{% endwith %}
+{% if count==0%}
+<h1>OOps you have not listed any products</h1>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+{% else %}
+<h4>The products that you have listed </h4>
+<div class="container">
+    <div class="row">
+        {% for post in query  %}
+        <div class="col-sm">
+
+
+
+
+            <div class="card" style="width: 22rem; border-width:3px; border-color:#c5dced; background-color: beige;">
+                <img class="card-img-top" src="{{url_for('static',filename='images/' + post.name) }}"
+                    alt="Card image cap" width="400px" height="400px">
+                <div class="card-body">
+                    <h1 class="card-title">{{post.productname}}</h1>
+                    <h6>{{post.description}}</h6>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h5>Address:{{post.address}}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>State:{{post.state}}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>City:{{post.city}}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5><b> Price:Rs{{post.price}}</b></h5>
+                    </li>
+                </ul>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h4>Contact Details</h4>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>Name:{{post.Firstname}}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>Email:{{post.email}}</h5>
+                    </li>
+                    <li class="list-group-item">
+                        <h5>Phone:{{post.phone}}</h5>
+                    </li>
+
+
+                </ul>
+                <div class="card-body">
+                    <a href="/edit/{{post.id}}"><button class="btn btn-primary">Edit</button></a>
+                    <a href="/delete/{{post.id}}"><button
+                            onclick="return confirm('Are you sure wanna delete your listed producted on our website?');"
+                            class="btn btn-danger">Delete</button></a>
+                </div>
+            </div>
+
+            <br><br>
+
+
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+
+
+{% endblock body %}

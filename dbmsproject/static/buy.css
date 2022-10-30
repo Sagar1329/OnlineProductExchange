@@ -1,0 +1,60 @@
+body {
+    font-size: small;
+    font-family: 'Abril Fatface', cursive;
+
+    background-image: url('buybg2.jpg');
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.headingbidro {
+    color: #e7cfb4;
+}
+
+#alwa {
+    border-radius: 30px;
+    border-color: #e7cfb4;
+    border-width: 10px;
+}
+
+.categories {
+    font-size: larger;
+    text-align: right;
+    color: #e7cfb4;
+}
+
+.button {
+    color: blue;
+    border-radius: 30rem;
+    border-width: 2px;
+    border-left: blue;
+    width: 4rem;
+    transition: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.button:hover {
+    background-color: cornsilk;
+}
+
+#contactdetails {
+    background-image: linear-gradient(to right, #000000, #2c2a2b, #555154, #7f7c82, #abaab3, #abaab3, #abaab3, #abaab3, #7f7c82, #555154, #2c2a2b, #000000);
+    border-color: #e7cfb4;
+}
+
+h4 {
+
+    font-size: 27px;
+    background: -webkit-linear-gradient(rgb(161, 103, 103), rgb(10, 221, 73));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+footer {
+
+
+    color: #e7cfb4;
+
+}

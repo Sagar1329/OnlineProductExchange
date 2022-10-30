@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block title %} Edit{% endblock title %} 
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='sell.css')}}"> {% endblock css %}
+{% block body %} 
+<h1>Edit page </h1>
+<div class="container">
+    <div class="row m-5">
+     
+        <div class="col-lg-6 col-10 nm p-5" id="my">
+
+            <form action="/edit/<string:pid>"  class="jkl" enctype="multipart/form-data" method="POST">
+                <h4>Update your product details</h4>
+                <div class="mb-3">
+                    <label for="Firstname">First Name</label>
+                    <input type="text" class="form-control" id='Firstname' value={{post.Firstname}} name="Firstname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Lastname">Last Name</label>
+                    <input type="text" class="form-control" id='Lastname' value={{post.Lastname}}
+                    name="Lastname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name='email' class="form-control" id="exampleInputEmail1"
+                       value={{post.email}} aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class='form-label'>Address </label>
+                    <input type="text" value="{{post.address}}" class="form-control" id="username" name="address" required>
+                </div>
+                <input type="hidden" name="id" value="{{post.id}}">
+                <div class="mb-3">
+                    <label for="state" class='form-label'>State</label>
+                    <select class="form-control" id="username" name="state" required>
+                        <option selected>{{post.state}}</option>
+                        <option>Karnataka</option>
+                        <option>Andra</option>
+                        <option>Delhi</option>
+                        <option> Andhra Pradesh</option>
+                        <option>Arunachal Pradesh </option>
+                        <option>Bihar </option>
+                        <option>Assam </option>
+                        <option>Chhattisgarh </option>
+                        <option>Goa </option>
+                        <option>Gujarat </option>
+                        <option>Haryana </option>
+                        <option> Himachal Pradesh </option>
+                        <option> Jharkhand </option>
+                        <option>Kerala </option>
+                        <option>Madhya Pradesh </option>
+                        <option>Maharashtra </option>
+                        <option>Manipur</option>
+                        <option> Meghalaya </option>
+                        <option>Mizoram </option>
+                        <option>Nagaland </option>
+                        <option>Odisha</option>
+                        <option> Punjab </option>
+                        <option>Rajasthan </option>
+                        <option>Sikkim </option>
+                        <option>Tamil Nadu </option>
+                        <option>Telangana </option>
+                        <option>Tripura </option>
+                        <option> Uttar Pradesh </option>
+                        <option>Uttarakhand </option>
+                        <option> West Bengal</option>
+
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="city" class='form-label'>City</label>
+                    <select class="form-control" id="username" name="city" required>
+                        <option selected>{{post.city}}</option>
+                        <option>Bengaluru</option>
+                        <option>Hyderabad</option>
+                        <option>Mumbai</option>
+
+                        <option>Itanagar</option>
+                        <option>Dispur</option>
+                        <option>Patna</option>
+                        <option>Raipur</option>
+                        <option>Panaji</option>
+                        <option>Gandhinagar</option>
+                        <option>Shimla</option>
+                        <option>Chandigarh </option>
+                        <option>Ranchi</option>
+                        <option>Bengaluru</option>
+                        <option>Thamiruvananthapur</option>
+                        <option>Bhopal</option>
+                        <option>Mumbai</option>
+                        <option>Imphal</option>
+                        <option>Shillong</option>
+                        <option>Aizawl</option>
+                        <option>Kohima</option>
+                        <option>Bhubaneswar</option>
+                        <option>Chandigarh</option>
+                        <option>Jaipur</option>
+                        <option>Gangtok</option>
+                        <option>Chennai</option>
+                        <option>Hyderabad</option>
+                        <option>Agartala</option>
+                        <option>Lucknow</option>
+                        <option>Dehradun</option>
+                        <option>Kolkata</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="pincode" class="form-label">Pin code</label>
+                    <input type="number" name="pincode" id="pincode"  value="{{post.pincode}}"class="form-control" required>
+
+                </div>
+                <div class="mb-3">
+                    <label for="productname" class="form-label">Product name</label>
+                    <input type="text" name="productname" class="form-control" id="productname"  value={{post.productname}} required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" name="username" value={{post.username}}  class="form-control" id="username"    readonly>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description">Description of your product</label>
+                    <textarea class="form-control" name="description" id="description"  rows="3" required> {{post.description}}</textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone number</label>
+                    <input type="number" name="phone" value={{post.phone}} id="phone" class="form-control" required>
+                </div>
+                <div class="custom-file">
+                    <input type="file" name="file" required>
+
+
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" name="price" value={{post.price}} id="price" class="form-control" required>
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                    <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+        <div class="col-lg-6 col-2"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock body %} 

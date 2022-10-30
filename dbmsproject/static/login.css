@@ -1,0 +1,23 @@
+body {
+
+    font-family: 'Abril Fatface', cursive;
+    background-image: url('loginback.jpg');
+    background-blend-mode: darken;
+    color: rgb(22, 22, 22);
+    background-repeat: no-repeat;
+
+    background-size: cover;
+}
+
+.login {
+    font-size: larger;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    text-shadow:
+        -1px -1px 0 rgba(226, 121, 0, 0.973),
+        1px -1px 0 rgba(226, 121, 0, 0.973)0,
+        -1px 1px 0 rgba(226, 121, 0, 0.973),
+        1px 1px 0 rgba(226, 121, 0, 0.973);
+
+
+}

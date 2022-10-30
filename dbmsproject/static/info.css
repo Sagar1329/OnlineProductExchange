@@ -1,0 +1,17 @@
+body {
+    background-image: url('info.jpg');
+    background-repeat: no-repeat;
+    color: #ead2ac;
+    background-size: 100%;
+    font-family: 'Koh Santepheap', cursive;
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    font-size: 15px;
+
+    text-align: center;
+}

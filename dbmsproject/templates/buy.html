@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% block css %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{url_for('static',filename='buy.css')}}"> {% endblock css %}
+{% block title %} BUY{% endblock title %}
+{% block body %}
+
+<div class="nj">
+
+
+    {% with  messages=get_flashed_messages(with_categories=true)  %}
+    {% if messages %}
+    {% for category,message in messages%}
+
+    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+        {{message}}
+        <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <!-- If you are using Bootstrap 5.0 it seems in the bootstrap.js code the data-dismiss selector has changed to data-bs-dismiss. So I just had to change data-dismiss="modal" to data-bs-dismiss="modal" and it worked.  -->
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <h1 class="headingbidro">WELCOME {{username}} </h1>
+    <div class="categories">
+        <form action="/category" method="POST">
+            <label for="cars">Categoriesc</label>
+
+            <select name="categary" id="cars">
+                <option>None</option>
+                <option>Electronics</option>
+                <option>automobiles</option>
+                <option>Clothes</option>
+
+                <option>Furnitures</option>
+                <option>FashionAccesories</option>
+                <option>Books</option>
+                <option>Toys</option>
+                <option>Games</option>
+                <option>Beverages</option>
+                <option>Sports</option>
+                <option>MusicalInstruments</option>
+                <option>HouseAppliances</option>
+                <option>Hardware</option>
+                <option>Masks</option>
+                <option>Gym&Fitness</option>
+                <option>WashingMachines</option>
+                <option>Fridges</option>
+                <option>Televison</option>
+                <option>MobileAccesories</option>
+                <option>Others</option>
+
+
+            </select>
+            <button class="button">filter</button>
+        </form>
+        <br>
+    </div>
+    <div class="container">
+        <div class="row">
+            {% for post in query  %}
+
+            <div class="col-sm">
+
+                {% if  username=='Admin'%}
+
+
+                <div class="card " id="alwa" style="width: 25rem;  background-color: beige;">
+                    <img class="card-img-top" src="{{url_for('static',filename='images/' + post.name) }}"
+                        alt="Card image cap" width="400px" height="400px">
+                    <div class="card-body" style="height: 10rem;">
+                        <h1 class="card-title">{{post.productname}}</h1>
+                        <h6>{{post.description}}</h6>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h5 style="height: 3.5rem;">Address:{{post.address}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>State:{{post.state}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>City:{{post.city}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5><b> Price:Rs{{post.price}}</b></h5>
+                        </li>
+                    </ul>
+                    <ul class="list-group list-group-flush" id="contactdetails">
+                        <li class="list-group-item">
+                            <h4>Contact Details</h4>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>Name:{{post.Firstname}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>Email:{{post.email}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>Phone:{{post.phone}}</h5>
+                        </li>
+
+
+                    </ul>
+
+                    <a href="/delete/{{post.id}}"><button
+                            onclick="return confirm('Are you sure wanna delete this listed producted on our website?');"
+                            class="btn btn-danger">Remove the product</button>
+                    </a>
+                </div>
+                <br>
+                <br>
+            </div>
+            {% else %}
+
+            <form action="/buyrequest" method="POST">
+
+                <input type="hidden" name="productname" value="{{post.productname}}">
+                <input type="hidden" name="username" value="{{post.username}}">
+                <input type="hidden" name="id" value="{{post.id}}">
+                <input type="hidden" name="filename" value="{{post.name}}">
+
+                <div class="card" id="alwa" style="width: 25rem;  background-color: beige;">
+                    <img class="card-img-top" id="alwa" src="{{url_for('static',filename='images/' + post.name) }}"
+                        alt="Card image cap" width="400px" height="400px">
+                    <div class="card-body" style="height: 10rem;">
+                        <h1 class="card-title">{{post.productname}}</h1>
+                        <h6>{{post.description}}</h6>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h5 style="height: 3.5rem;">Address:{{post.address}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>State:{{post.state}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>City:{{post.city}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5><b> Price:Rs{{post.price}}</b></h5>
+                        </li>
+                    </ul>
+                    <ul class="list-group list-group-flush" id="contactdetails">
+                        <li class="list-group-item">
+                            <h4>Contact Details</h4>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>Name:{{post.Firstname}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>Email:{{post.email}}</h5>
+                        </li>
+                        <li class="list-group-item">
+                            <h5>Phone:{{post.phone}}</h5>
+                        </li>
+
+
+                    </ul>
+                    <div class="card-body">
+                        <button style="width: 200px; height: 50px; font-size: medium; background-color:#e5f5fa">Request Owner
+            </button>
+                    </div>
+
+
+            </form>
+
+
+
+        </div>
+
+        <br><br>
+    </div>
+    {% endif%}
+    {% endfor %}
+
+</div>
+</div>
+
+
+</div>
+
+
+{% endblock body %}

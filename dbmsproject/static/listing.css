@@ -1,0 +1,18 @@
+body {
+    font-family: 'Abril Fatface', cursive;
+    background-image: url('listingback.jpg');
+    background-blend-mode: darken;
+    color: rgb(0, 0, 0);
+    background-repeat: no-repeat;
+    text-shadow:
+        -1px -1px 0 rgba(255, 254, 253, 0.973),
+        1px -1px 0 rgba(255, 254, 253, 0.973),
+        -1px 1px 0 rgba(255, 254, 253, 0.973),
+        1px 1px 0 rgba(255, 254, 253, 0.973);
+
+    background-size: cover;
+}
+
+#nav {
+    color: rgb(0, 0, 0);
+}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %} SIGNUP{% endblock title %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='signup.css')}}">
+{% endblock css %}
+{% block body %}
+<div class="jk">
+
+    <div class="row m-0">
+        <div class="col-lg-6 col-1"></div>
+        <div class="col-lg-6 col-10  p-5 fm">
+            <h3 class="text-left">Signup for FREE</h3>
+            {% with  messages=get_flashed_messages(with_categories=true)  %}
+            {% if messages %}
+            {% for category,message in messages%}
+
+            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- If you are using Bootstrap 5.0 it seems in the bootstrap.js code the data-dismiss selector has changed to data-bs-dismiss. So I just had to change data-dismiss="modal" to data-bs-dismiss="modal" and it worked.  -->
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <form action="/signup" class="signup"method="POST">
+                <div class="mb-3">
+                    <label for="Firstname">First Name</label>
+                    <input type="text" class="form-control" id='Firstname' name="Firstname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="Lastname">Last Name</label>
+                    <input type="text" class="form-control" id='Lastname' name="Lastname" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name='email' class="form-control" id="exampleInputEmail1"
+                        aria-describedby="emailHelp" required>
+                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div class="mb-3">
+                    <label for="username" class='form-label'>Username</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmpass" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmpass" name="confirmpass">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+                    <label class="form-check-label" for="exampleCheck1">I agree to terms and conditions</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Signup</button>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+{% endblock body %}

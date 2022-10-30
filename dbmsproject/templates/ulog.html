@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='ulog.css')}}"> {% endblock css %}
+{% block title %} BUY{% endblock title %}
+{% block body %}
+<div class="categories">
+    <form action="/ucategory" method="POST">
+        <label for="ftime">From</label>
+        <input type="date" name="ftime" id="ftime">
+        <label for="ttime">To</label>
+        <input type="date" name="ttime" id="ttime">
+        <label for="cars">Action</label>
+
+        <select name="Action" id="cars" required>
+            <option>All</option>
+            <option>NEW USER JOINED</option>
+            <option>USER PROFILE UPDATED</option>
+            <option>USER LOGGED IN</option>
+            <option>USER LOGGED OUT</option>
+
+        </select>
+        <button class="button">filter</button>
+    </form>
+    <br>
+</div>
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">NAME</th>
+            <th scope="col">EMAIL</th>
+            <th scope="col">USERNAME</th>
+
+            <th scope="col">TIMESTAMP</th>
+            <th scope="col">ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in query%}
+        <tr>
+            <th scope="row">{{post.id}}</th>
+            <td>{{post.name}}</td>
+            <td>{{post.email}}</td>
+            <td>{{post.username}}</td>
+
+            <td>{{post.Timestamp}}</td>
+            <td>{{post.action}}</td>
+
+
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
+
+
+
+
+{% endblock body %}

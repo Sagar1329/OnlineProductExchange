@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static',filename='info.css')}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Koh+Santepheap&display=swap" rel="stylesheet">{% endblock css %}
+{% block title %} Info{% endblock title %}
+{% block body %}
+<h1>INFO </h1>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <p>Olx is a e-commerce platform where you can buy and sell used items
+            Its gonna be a fast growing trading platform in the future
+            We have user friendly GUI which helps the customers to operate easily
+
+            <br><br><br><br>
+            I honestly dont know what to type
+        </p>
+    </div>
+    <div class="col-4"></div>
+</div>
+
+{% endblock body %}

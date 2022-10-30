@@ -1,0 +1,27 @@
+body {
+
+    font-family: 'Abril Fatface', cursive;
+
+    background-image: url('hn2.webp');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#nav {
+    color: black;
+}
+
+#ghh {
+    color: blue;
+    width: min-content;
+}
+
+.jkl {
+    width: 60%;
+    font-size: 20px;
+    font-weight: bolder;
+    color: black;
+    border-color: black;
+
+}

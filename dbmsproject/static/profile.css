@@ -1,0 +1,35 @@
+#ki {
+    font-family: 'Abril Fatface', cursive;
+    background-color: #495057;
+}
+
+body {
+    font-family: 'Abril Fatface', cursive;
+    background-image: url('profileback.jpg');
+    background-blend-mode: darken;
+
+    background-repeat: no-repeat;
+
+    background-size: cover;
+
+}
+
+h1 {
+    color: #faf9f9;
+    text-align: center;
+    font-size: 70px;
+}
+
+#nav {
+    color: black;
+}
+
+.profilebox {
+    width: 100%;
+    height: 90%;
+}
+
+.hi {
+    size: 50%;
+
+}
